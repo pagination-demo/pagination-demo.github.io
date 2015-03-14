@@ -2,24 +2,27 @@
 layout: default
 ---
 
+Pagination in Post works by default
+
+<div id="post-nav" class="clearfix nav-slide">
+    <div class="work">    
+        {% if page.previous.url %}
+        <a class="prev" href="{{page.previous.url}}">
+            <span class="slide-wrap">&lt; {{page.previous.title}}</span>
+        </a> 
+        {% endif %} 
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        {% if page.next.url %} 
+        <a class="next" href="{{page.next.url}}">
+            <span class="slide-wrap">{{page.next.title}} &gt;</span>
+        </a> 
+        {% endif %} 
+    </div>
+</div>
+
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="page-date">{{ page.date | date_to_string }}</time>
   {{ content }}
 </article>
 
-<aside class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-            <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</aside>

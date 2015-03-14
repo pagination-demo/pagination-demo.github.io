@@ -17,3 +17,8 @@ author:
 version:          1.0.0
 github:
   repo:           https://github.com/poole/poole
+
+collections:
+  tripcollection:
+    output: true
+    permalink: /:collection/:title/
